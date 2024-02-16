@@ -2,6 +2,9 @@
   "folders": [
     {
       "path": "nextjs-app"
+    },
+    {
+      "path": "copilot"
     }
   ],
   "settings": {}
