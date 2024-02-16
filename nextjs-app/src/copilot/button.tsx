@@ -1,6 +1,6 @@
 import ThemeContext from "@/context/theme";
 import { Button } from "@mui/material";
-import { ChatWidget, GetSendMessageParamsFN } from "@palico-ai/react";
+import { ChatWidget } from "@palico-ai/react";
 import { useContext, useState } from "react";
 
 const CopilotButton: React.FC = () => {
@@ -14,15 +14,6 @@ const CopilotButton: React.FC = () => {
 
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const setMessageParams: GetSendMessageParamsFN = async (userInput) => {
-    return {
-      message: userInput,
-      context: {
-        isTurnModeOn: isDark,
-      },
-    };
   };
 
   return (
@@ -40,9 +31,16 @@ const CopilotButton: React.FC = () => {
         Copilot
       </Button>
       <ChatWidget
+        getSendMessageParams={async (userinput: string) => {
+          return {
+            message: userinput,
+            context: {
+              isDarkMode: isDark,
+            }
+          };
+        }}
         width="400px"
         height="600px"
-        getSendMessageParams={setMessageParams}
         headerTitle="Chatbot"
         anchorEl={anchorEl}
         open={open}

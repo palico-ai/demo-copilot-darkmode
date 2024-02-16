@@ -4,8 +4,8 @@ import React from "react";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ThemeContext, { ThemeProvider } from "@/context/theme";
-import CopilotButton from "@/components/copilot_button";
-import { CopilotProvider } from "@/context/copilot_provider";
+import { CopilotProvider } from "@/copilot/context";
+import CopilotButton from "@/copilot/button";
 
 export default function Home() {
   const theme = useTheme();
